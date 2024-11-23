@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Gift for Essam</title>
+    <style>
+        body {
+            background-color: black; /* خلفية سوداء */
+            color: gold; /* نص ذهبي */
+            font-family: 'Times New Roman', Times, serif; /* اختيار خط كلاسيكي */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20%;
+            font-size: 36px;
+            color: white; /* تغيير لون النص إلى الأبيض */
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 24px;
+            color: gold; /* نص ذهبي */
+            padding: 10px 20px;
+            border: 2px solid gold; /* حدود ذهبية */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            animation: shine 1.5s infinite; /* تأثير اللمعان لكلمة "Click here" */
+        }
+
+        a:hover {
+            background-color: gold; /* خلفية ذهبية عند التمرير */
+            color: black; /* نص أسود عند التمرير */
+        }
+
+        #videoModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #videoModal video {
+            width: 80%;
+            height: 80%;
+        }
+
+        #footer {
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        /* تأثير اللمعان لكلمة "Click here" */
+        @keyframes shine {
+            0% {
+                text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold;
+            }
+            50% {
+                text-shadow: 0 0 20px gold, 0 0 30px gold, 0 0 40px gold, 0 0 50px gold;
+            }
+            100% {
+                text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold, 0 0 20px gold;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hello Essam 👋</h1>
+    <a href="#" onclick="openVideo()">دوس هنا يا أبو عصام</a>
+
+    <!-- Modal for video -->
+    <div id="videoModal">
+        <video id="videoPlayer" controls>
+            <source id="videoSource" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="footer">
+        Programmed by Hassan Said
+    </div>
+
+    <script>
+        function openVideo() {
+            const modal = document.getElementById("videoModal");
+            const videoPlayer = document.getElementById("videoPlayer");
+            const videoSource = document.getElementById("videoSource");
+
+            // الرابط المحلي للفيديو داخل Replit
+            videoSource.src = "Essam.mp4";  // تأكد أن اسم الفيديو في Replit هو birthday-video.mp4
+            videoPlayer.load();  // إعادة تحميل الفيديو
+            modal.style.display = "flex"; // يظهر المودال
+        }
+
+        // إغلاق الفيديو عند النقر على المكان الأسود خارج الفيديو
+        window.onclick = function(event) {
+            const modal = document.getElementById("videoModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+                const videoPlayer = document.getElementById("videoPlayer");
+                videoPlayer.pause(); // إيقاف الفيديو عند غلقه
+            }
+        }
+    </script>
+
+
+</body></html>
